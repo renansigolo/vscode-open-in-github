@@ -10,14 +10,39 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:open-in-github.helloWorld"
+    "onCommand:open-in-github.showOpenInGitHub",
+    "onCommand:open-in-github.openInGitHub"
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "Open In GitHub",
+      "properties": {
+        "openInGitHub.statusBar.label": {
+          "type": "boolean",
+          "default": false,
+          "description": "Shows a text label in the editor Status Bar."
+        },
+        "openInGitHub.statusBar.icon": {
+          "type": "string",
+          "default": "github-inverted",
+          "enum": [
+            "github",
+            "github-alt",
+            "github-inverted"
+          ],
+          "description": "Changes the icon in the editor Status Bar."
+        }
+      }
+    },
     "commands": [
       {
-        "command": "open-in-github.helloWorld",
-        "title": "Hello World"
+        "command": "open-in-github.showOpenInGitHub",
+        "title": "Show Open In GitHub"
+      },
+      {
+        "command": "open-in-github.openInGitHub",
+        "title": "Open in GitHub"
       }
     ]
   },
